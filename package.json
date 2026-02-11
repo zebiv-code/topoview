@@ -1,0 +1,15 @@
+{
+  "name": "topoview",
+  "version": "1.0.0",
+  "description": "Interactive 3D topography viewer with contour lines and elevation coloring for any location.",
+  "author": "Bill Heyman <bill@heyman.ai> (https://billheyman.com)",
+  "license": "MIT",
+  "homepage": "https://zebiv.com/topoview/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zebiv-code/topoview/"
+  },
+  "scripts": {
+    "start": "npx serve web -l 3000"
+  }
+}
