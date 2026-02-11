@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TopoView — heyman.ai</title>
+<link rel="stylesheet" href="css/main.css">
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.163.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.163.0/examples/jsm/"
+  }
+}
+</script>
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<div id="location-bar">
+  <input type="text" id="location-input" placeholder="Place name or lat, lon (e.g. 44.27, -72.74)" />
+  <button id="geolocate-btn" title="Use current location">&#9737;</button>
+  <button id="load-btn">Load</button>
+</div>
+
+<div id="controls">
+  <label><input type="checkbox" id="chk-contours" checked /> Contour Lines</label>
+  <label><input type="checkbox" id="chk-gradient" checked /> Gradient Texture</label>
+  <label><input type="checkbox" id="chk-water" checked /> Water Detection</label>
+  <label><input type="checkbox" id="chk-center" checked /> Show Center</label>
+  <div class="slider-row">
+    <div class="slider-label"><span>Extent</span><span id="val-extent">1 km</span></div>
+    <input type="range" id="slider-extent" min="0" max="3" step="0.25" value="0" />
+  </div>
+  <div class="slider-row">
+    <div class="slider-label"><span>Vertical Exaggeration</span><span id="val-exag">2.0×</span></div>
+    <input type="range" id="slider-exag" min="1" max="5" step="0.1" value="2" />
+  </div>
+  <div class="slider-row">
+    <div class="slider-label"><span>Contour Interval</span><span id="val-interval">50 m</span></div>
+    <input type="range" id="slider-interval" min="10" max="200" step="10" value="50" />
+  </div>
+  <div id="elevation-info">
+    Elevation: loading...
+  </div>
+</div>
+
+<div id="location-info">
+  <div id="compass-row">
+    <canvas id="compass" width="100" height="100"></canvas>
+    <div id="side-buttons">
+      <button id="btn-elev-up" title="Go to highest point">&#9650;</button>
+      <button id="btn-elev-down" title="Go to lowest point">&#9660;</button>
+      <button id="btn-share" title="Copy share link">&#128279;</button>
+    </div>
+  </div>
+  <div id="location-text"></div>
+</div>
+
+<div id="loading-overlay">
+  <div class="spinner"></div>
+  <span id="loading-text">Loading terrain...</span>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
